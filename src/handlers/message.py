@@ -241,7 +241,7 @@ class MessageHandler:
                     parts = [p.strip() for p in reply.split('\\') if p.strip()]
                     for part in parts:
                         self.wx.SendMsg(msg=part, who=chat_id)
-                        time.sleep(random.randint(1, 2))
+                        time.sleep(random.randint(0, 1))
                 else:
                     self.wx.SendMsg(msg=reply, who=chat_id)
 

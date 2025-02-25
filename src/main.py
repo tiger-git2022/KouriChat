@@ -158,7 +158,7 @@ class ChatBot:
                     if chatName not in self.user_queues:
                         logger.info(f"创建新的消息队列 - 聊天ID: {chatName}")
                         self.user_queues[chatName] = {
-                            'timer': threading.Timer(5.0, self.process_user_messages, args=[chatName]),
+                            'timer': threading.Timer(3.0, self.process_user_messages, args=[chatName]),
                             'messages': [time_aware_content],
                             'sender_name': sender_name,
                             'username': username,
@@ -337,7 +337,7 @@ def message_listener():
             if wx is None or (current_time - last_window_check > check_interval):
                 wx = WeChat()
                 if not wx.GetSessionList():
-                    time.sleep(5)
+                    time.sleep(3)
                     continue
                 last_window_check = current_time
             
